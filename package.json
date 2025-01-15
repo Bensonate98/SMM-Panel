@@ -12,36 +12,14 @@
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/app.js",
-    "dev": "nodemon --exec ts-node src/app.ts",
-    "build": "tsc",
-    "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.10.5",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.14.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.3.0",
-    "nodemon": "^3.1.9",
-    "prettier": "^3.4.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.19.1"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
+    "nodemon": "^3.1.9"
   }
 }
