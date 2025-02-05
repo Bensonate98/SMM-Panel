@@ -1,0 +1,40 @@
+<!-- Footer -->
+<footer class="bg-dark text-light py-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4 footer-column">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#" class="text-light">Home</a></li>
+                  <li><a href="#" class="text-light">Services</a></li>
+                  <li><a href="#" class="text-light">API</a></li>
+                  <li><a href="#" class="text-light">Blog</a></li>
+              </ul>
+          </div>
+          <!-- Add more footer columns -->
+      </div>
+      <div class="text-center mt-4">
+          <p>&copy; 2024 Fujest | All Rights Reserved</p>
+      </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+      duration: 1000,
+      once: true
+  });
+
+  // Add animation classes to nav items when mobile menu opens
+  document.querySelector('.navbar-toggler').addEventListener('click', function() {
+      const navItems = document.querySelectorAll('.navbar-nav .nav-item');
+      navItems.forEach((item, index) => {
+          item.style.animationDelay = `${0.1 * (index + 1)}s`;
+      });
+  });
+</script>
+</body>
+</html>
