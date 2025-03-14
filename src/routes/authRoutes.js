@@ -1,10 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
-import { registerUser, verifyUser } from "../controllers/authControllers.js"
-import { validateRegisterInput, validateVerificationInput } from "../middlewares/validate.js";
+import { registerUserController, verifyUserController, loginUserController } from "../controllers/authControllers.js"
+import { validateRegisterInput, validateVerificationInput, validateLoginInput } from "../middlewares/validate.js";
 
 
-router.post("/register", validateRegisterInput, registerUser);
-router.patch("/verify", validateVerificationInput, verifyUser);
+router.post("/register", validateRegisterInput, registerUserController);
+router.patch("/verify", validateVerificationInput, verifyUserController);
+router.post("/login", validateLoginInput, loginUserController);
 export default router;

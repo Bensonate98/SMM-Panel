@@ -10,7 +10,17 @@ router.get("/register", (req, res)=>{
 });
 
 router.get("/login", (req, res)=>{
-  res.render("home/login");
+  res.render("home/login", {req, error: null});
 });
+
+router.get("/verify", (req, res)=>{
+  res.render("home/verify", {error: null});
+});
+
+//Protected routes
+
+router.get("/dashboard", (req, res)=>{
+  res.render("dashboard/home")
+})
 
 export default router;

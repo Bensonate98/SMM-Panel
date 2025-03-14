@@ -39,6 +39,21 @@ export const registerSchema = new Joi.object({
                       })
 })
 
+export const loginSchema = new Joi.object({
+  email: Joi.string()
+            .email()
+            .required()
+            .messages({
+              "string.email": "invalid email",
+              "any.required": "Email is required"
+            }),
+  password: Joi.string()
+               .required()
+               .messages({
+                "any.required": 'Password is required'
+              })
+})
+
 export const verifyEmailSchema = new Joi.object({
   verificationCode: Joi.string()
                 .required()
@@ -47,4 +62,16 @@ export const verifyEmailSchema = new Joi.object({
                   "any.required": "Verification code is required"
                 })
   })
+
+  export const checkErrorAndValidate = (err, res)=>{
+    if(err.meta.target === "User_email_key"){
+      return res.render("home/register", {error:{message: "An account with this email already exists"}});
+    }
+  }
+
+  export const checkCodeAndValidate = (err, res) =>{
+    if(err.message === "invalid code"){
+      return res.render("home/verify", {error:{message: "Invalid verification code"}});
+    }  
+  }
 
