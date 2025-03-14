@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 const router = express.Router();
-import { registerUserController, verifyUserController, loginUserController } from "../controllers/authControllers.js"
+import { registerUserController, verifyUserController, loginUserController } from "../controllers/auth.controller.js"
 import { validateRegisterInput, validateVerificationInput, validateLoginInput } from "../middlewares/validate.js";
 
 

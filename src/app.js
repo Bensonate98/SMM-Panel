@@ -2,8 +2,8 @@ import express from "express";
 import ejs from "ejs"
 import methodOverride from "method-override";
 import {port} from "./config/secrets.js";
-import webRoutes from "./routes/webRoutes.js"
-import authRoutes from "./routes/authRoutes.js"
+import webRoutes from "./routes/web.routes.js"
+import authRoutes from "./routes/auth.routes.js"
 const app = express();
 
 // middlewares

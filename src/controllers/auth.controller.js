@@ -1,7 +1,7 @@
 import { encryptPassword, generateVerificationCode } from "../util/helper.js";
 import { checkErrorAndValidate, checkCodeAndValidate } from "../util/validator.js";
-import { createUser, verifyUserEmail, loginUser } from "../services/authServices.js";
-import sendMail from "../services/emailSevice.js";
+import { createUser, verifyUserEmail, loginUser } from "../services/auth.service.js";
+import sendMail from "../services/email.service.js";
 
 export const registerUserController = async (req, res) =>{
   try{
