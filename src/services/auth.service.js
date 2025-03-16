@@ -1,32 +1,20 @@
 import prisma from "../config/db.js";
-import { comparePassword } from "../util/helper.js";
+import { encryptPassword, comparePassword, generateJWT } from "../util/helper.js";
 
 export const createUser = async (firstname, lastname, email, password, verificationCode)=>{
+  const hashedPassword = await encryptPassword(password);
     const user = await prisma.user.create({
       data:{
         firstname,
         lastname,
         email,
-        password,
-        verificationCode
+        password: hashedPassword,
       }
     });
-    return user
+    const token = generateJWT(user.id);
+    return {user, token};
 }
 
-export const verifyUserEmail = async (verificationCode) =>{
-  const user = await prisma.user.findFirst ({
-    where: {verificationCode}
-  });
-  if(user){
-    return await prisma.user.update({
-      where: {id: user.id},
-      data: {isVerified: "true", verificationCode: null}
-    })
-  } else{
-    throw Error("invalid code");
-  }
-}
 
 export const loginUser = async (email, password) => {
  const registeredUser = await prisma.user.findFirst({
