@@ -22,4 +22,27 @@ model User {
   password                String
   createdAt               DateTime        @default(now())
   updatedAt               DateTime        @updatedAt
+  tokens                  Token[]
+  Deposit                 Deposit[]
+}
+
+model Token {
+  id                      Int             @id @default(autoincrement())
+  refreshToken            String   
+  expiresAt               DateTime 
+  userId                  Int      
+  user                    User            @relation(fields: [userId], references: [id])
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
+
+  @@index([refreshToken]) 
+}
+
+model Deposit {
+  id                      Int             @id @default(autoincrement())
+  amount                  String   
+  userId                  Int    
+  user                    User            @relation(fields: [userId], references: [id])
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
 }

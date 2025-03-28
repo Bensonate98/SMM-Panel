@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emboost - Dashboard</title>
+
+    <link type="image/png" href="/asset/assets/images/logo_icon/favicon.png" rel="shortcut icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/asset/assets/global/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/asset/assets/global/css/all.min.css" rel="stylesheet">
+    <link href="/asset/assets/global/css/line-awesome.min.css" rel="stylesheet">
+    <link href="/asset/assets/global/css/prism.css" rel="stylesheet">
+    <link href="/asset/assets/templates/trendy/css/style.css" rel="stylesheet">
+    <link href="/asset/assets/templates/trendy/css/custom.css" rel="stylesheet">
+
+    <style>
+        .empty-slip-message {
+            display: grid;
+            place-content: center;
+            height: 30vh;
+            color: #cfcfcf;
+            font-size: 0.8754rem;
+            font-family: inherit;
+        }
+
+        .empty-slip-message img {
+            width: 75px;
+            margin-bottom: 0.875rem;
+        }
+    </style>
+    <link type="text/css" href="/asset/assets/global/css/jquery.treeView.css" rel="stylesheet">
+    <style>
+        .copy-link {
+            position: relative;
+        }
+
+        .copy-link input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d7d7d7;
+            border-radius: 4px;
+            transition: all .3s;
+            padding-right: 70px;
+        }
+
+        .copy-link span {
+            text-align: center;
+            position: absolute;
+            top: 12px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .form-check-input:focus {
+            box-shadow: none;
+        }
+    </style>
+
+    <link href="/asset/assets/templates/trendy/css/color.php?color=054944&secondColor=e5e5e5" rel="stylesheet">
+
+    <!--NUDGIFY SCRIPT START-->
+    <script type="41ea73d7931e7d94b27632a4-text/javascript">
+        window.nudgify = {data: {"product":{"stock":null,"image":null,"id":null}}};
+        (function(w){
+            var k="nudgify",n=w[k]||(w[k]={});
+            n.uuid="04be8603-a291-4191-895a-21ff9c776c92";
+            var d=document,s=d.createElement("script");
+            s.src="https://pixel.nudgify.com/pixel.js";
+            s.async=1;
+            s.charset="utf-8";
+            d.getElementsByTagName("head")[0].appendChild(s)
+        })(window)
+    </script>
+    <!--NUDGIFY SCRIPT END-->
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="41ea73d7931e7d94b27632a4-text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25397861.js"></script>
+    <!-- End of HubSpot Embed Code -->
+
+    <!--ZOHO SALESIQ CHAT START-->
+    <script type="41ea73d7931e7d94b27632a4-text/javascript" id="zsiqchat">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq109780666fd68c9da536fdbd0971aefd5e377374f3447896c3196664fa8f9e5b", 
+        values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);
+    </script>
+    <!--ZOHO SALESIQ CHAT END-->
+
+    <!--ZOHO PAGESENSE START-->
+    <script src="https://cdn.pagesense.io/js/slabng/3afbebf2b7d145d797e79a35165ae456.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+    <!--ZOHO PAGE SENSE END-->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-34YM2LFXLM" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+    <script type="41ea73d7931e7d94b27632a4-text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-34YM2LFXLM');
+    </script>
+</head>
+
+<body>
+
+    <div class="body-overlay"></div>
+    <div class="sidebar-overlay"></div>
+    <a class="scroll-top"><i class="fas fa-angle-double-up"></i></a>
+
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand logo fw-bolder fs-3" href="/">emboost</a>
+                <button class="navbar-toggler header-button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span id="hiddenNav"><i class="las la-bars"></i></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-menu primary-nav align-items-lg-center justify-content-end flex-grow-1 ms-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/services"> Services </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/contact"> Contact </a>
+                        </li>
+                    </ul>
+
+                    <div class="top-button nav-item d-lg-none flex-between align-items-center">
+                        <ul class="login-registration-list d-flex align-items-center flex-wrap">
+                            <li class="login-registration-list__item get-start"><a class="login-registration-list__link btn btn--base nav-btn" href="/dashboard"> Dashboard </a></li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-nav nav-menu align-items-lg-center d-none d-lg-flex ms-auto">
+                        <li class="nav-item">
+                            <a class="btn btn--base nav-btn d-inline" href="/logout"><i class="las la-sign-out-alt"></i> Logout </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard-section section-bg pb-60 pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex gap-3 flex-wrap align-items-center mb-4">
+                        <span class="sidebar_menu_btn d-lg-none d-inline-flex mt-2"><i class="fas fa-bars"></i></span>
+                        <div class="dashboard-wrapper__header mb-0">
+                            <h4 class="title mb-0"><%= title %></h4>
+                        </div>
+                    </div>
+                    <div class="dashboard-wrapper">
+                        <div class="dashboard">
+                            <div class="dashboard__inner flex-wrap">
+                                <!-- Sidebar Menu -->
+                                <div class="sidebar-menu">
+                                    <!-- Close Button -->
+                                    <span class="sidebar-menu__close d-lg-none d-inline-flex"><i class="las la-times"></i></span>
+                                    <!-- Sidebar Logo -->
+                                    <div class="sidebar-logo d-lg-none d-block">
+                                        <a class="sidebar-logo__link ms-auto" href="https://www.slab.ng">
+                                            <img src="/asset/assets/images/logo_icon/logo_dark.png" alt="Site Logo">
+                                        </a>
+                                    </div>
+                                    <!-- Sidebar Menu -->
+                                    <ul class="sidebar-menu-list">
+                                        <li class="sidebar-menu-list__item active">
+                                            <a class="sidebar-menu-list__link" href="/user/dashboard">
+                                                <span class="icon"><i class="las la-tachometer-alt"></i></span>
+                                                <span class="text">Dashboard</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="sidebar-menu-list__item has-dropdown ">
+                                            <a class="sidebar-menu-list__link " href="javascript:void(0)">
+                                                <span class="icon"><i class="las la-shopping-cart"></i></span>
+                                                <span class="text">Manage Orders</span>
+                                            </a>
+                                            <div class="sidebar-submenu ">
+                                                <ul class="sidebar-submenu-list">
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/overview">
+                                                            <span class="text">New Order</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/mass">
+                                                            <span class="text">Mass Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/history">
+                                                            <span class="text">All Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/pending">
+                                                            <span class="text">Pending Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/processing">
+                                                            <span class="text">Processing Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/completed">
+                                                            <span class="text">Completed Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/cancelled">
+                                                            <span class="text">Cancelled Orders</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/order/refunded">
+                                                            <span class="text">Refunded Orders</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        <li class="sidebar-menu-list__item has-dropdown ">
+                                            <a class="sidebar-menu-list__link " href="javascript:void(0)">
+                                                <span class="icon"><i class="las la-wallet"></i></span>
+                                                <span class="text">Manage Deposit</span>
+                                            </a>
+                                            <div class="sidebar-submenu ">
+                                                <ul class="sidebar-submenu-list">
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/deposit">
+                                                            <span class="text">Deposit Money </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/deposit/history">
+                                                            <span class="text">Deposit History </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+
+                                        <li class="sidebar-menu-list__item ">
+                                            <a class="sidebar-menu-list__link" href="https://www.slab.ng/user/transactions">
+                                                <span class="icon"><i class="las la-exchange-alt"></i></span>
+                                                <span class="text">Transactions</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-list__item ">
+                                            <a class="sidebar-menu-list__link" href="https://www.slab.ng/user/referrals">
+                                                <span class="icon"><i class="las la-users"></i></span>
+                                                <span class="text">My Referrals</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-menu-list__item ">
+                                            <a class="sidebar-menu-list__link" href="https://www.slab.ng/user/favorite">
+                                                <span class="icon"> <i class="las la-star-half-alt"></i></span>
+                                                <span class="text">Favorite Services</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="sidebar-menu-list__item has-dropdown">
+                                            <a class="sidebar-menu-list__link " href="javascript:void(0)">
+                                                <span class="icon"><i class="las la-user"></i></span>
+                                                <span class="text">Manage Profile</span>
+                                            </a>
+                                            <div class="sidebar-submenu ">
+                                                <ul class="sidebar-submenu-list">
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/profile-setting">
+                                                            <span class="text">Profile Setting </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-submenu-list__item ">
+                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/change-password">
+                                                            <span class="text">Change Password </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        <li class="sidebar-menu-list__item">
+                                            <a class="sidebar-menu-list__link" href="/logout">
+                                                <span class="icon"><i class="las la-sign-out-alt"></i></span>
+                                                <span class="text">Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>

@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
-import crypto from "crypto";
-import { jwtSecret } from "../config/secrets.js";
+import { accessSecret, refreshSecret } from "../config/secrets.js";
 import jwt from "jsonwebtoken";
 
 
@@ -18,15 +17,28 @@ export const comparePassword = (password, hashedPassword) => bcrypt.compare(pass
 //   return code.toString().padStart(6, '0');
 // };
 
-export const generateJWT = (userId)=>{
-  return jwt.sign({ payload: userId }, jwtSecret, { expiresIn: '1h' }); 
+export const generateAccesToken = (userId)=>{
+  return jwt.sign({ payload: userId }, accessSecret, { expiresIn: '1m' }); 
 };
 
-export const sendTokenAsCookie = (res, token) =>{
-  // Send token as HTTP-only cookie
+export const generateRefreshToken = (userId)=>{
+  return jwt.sign({ payload: userId }, refreshSecret, { expiresIn: '7d' }); 
+};
+
+export const sendAcessTokenAsCookie = (res, token) =>{
     res.cookie("accessToken", token, {
-      httpOnly: true,  // Prevents JavaScript access
-      secure: false,   // Set to 'true' in production with HTTPS
-      maxAge: 3600000, // 1 hour
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+      maxAge: 1 * 60 * 1000
+  });
+}
+
+export const sendRefreshTokenAsCookie = (res, token) =>{
+    res.cookie("refreshToken", token, {
+      httpOnly: true,  
+      secure: false, 
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000
   });
 }

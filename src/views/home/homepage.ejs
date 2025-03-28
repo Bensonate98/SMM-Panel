@@ -1,66 +1,410 @@
-<%- include ('_header'); %>
-    <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold mb-4">Boost Your Social Media Presence</h1>
-                    <p class="text-muted h5 mb-4">with Our Advanced SMM Panel #1</p>
-                    <p class="mb-4">Our SMM panel is a powerful tool designed to help you increase your social media presence and reach.</p>
-                    <a href="/register">
-                        <button class="btn btn-primary">Sign Up Today</button>
-                    </a>
-                    
-                </div>
-                <div class="col-lg-6 position-relative" data-aos="fade-left">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20(124)-NmJLuZg0NgoxBSpUJt2ea4O8FVKGVC.png" alt="Social Media Illustration" class="img-fluid hero-image">
-                    <div class="social-icon floating" style="top: 10%; right: 20%;">
-                        <img src="/placeholder.svg?height=30&width=30" alt="Facebook">
-                    </div>
-                    <div class="social-icon floating" style="top: 40%; right: 10%;">
-                        <img src="/placeholder.svg?height=30&width=30" alt="Instagram">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<%- include("_header"); %>
 
-    <!-- Features Section -->
-    <section class="py-5">
+    <section class="banner-section pb-120 pt-60">
         <div class="container">
-            <h2 class="text-center mb-5" data-aos="fade-up">How It Works</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card text-center">
-                        <img src="/placeholder.svg?height=60&width=60" alt="Create Account" class="mb-4">
-                        <h3>Create An Account</h3>
-                        <p>Begin your journey with us by signing up and creating your account.</p>
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="banner-content">
+                        <h4 class="banner-content__subtitle" s-break="-1"> Starting from ₦1 Only</h4>
+                        <h1 class="banner-content__title">Instagram, Tiktok And YouTube Followers, Likes &amp; Views Services</h1>
+                        <p class="banner-content__desc">
+                            We offer the best social media services to help you boost your online presence across all Social Media Platforms at Affordable Prices starting from ₦1 Only.
+                        </p>
+                        <a class="banner-content__button btn btn--base" class="btn btn--base" href="user/register.html">
+                            Get Started
+                        </a>
+                        <a style="background-color: white; color: #063935; border: 1px solid #063935; border-radius: 8px; padding: 3.2%;" href="user/login.html">
+                            Sign In
+                        </a>
                     </div>
                 </div>
-                <!-- Add more feature cards with the same structure -->
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="faq-item" data-aos="fade-up">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            What is SMM PANEL?
-                        </button>
-                    </h2>
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            The SMM panel is basically a social media marketing panel where you can buy targeted actions.
+                <div class="col-lg-6">
+                    <div class="banner-thumb">
+                        <div class="main-thumb">
+                            <img class="" src="assets/images/frontend/banner/6758602f8ce5f1733845039.png" alt="Banner thumb">
+                        </div>
+                        <img class="wheel" src="assets/templates/trendy/images/shapes/wheel.png" alt="wheel">
+                        <div class="animation-ball">
+                            <span class="ball ball-1"></span>
+                            <span class="ball ball-2"></span>
+                            <span class="ball ball-3"></span>
+                            <span class="ball ball-4"></span>
+                            <span class="ball ball-5"></span>
+                            <span class="ball ball-6"></span>
                         </div>
                     </div>
                 </div>
-                <!-- Add more FAQ items -->
             </div>
         </div>
     </section>
 
+    <section class="about-section py-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="section-heading style-left">
+                        <p class="section-heading__sub-title"> About Us </p>
+                        <h2 class="section-heading__title"> Driving Your Business Social Media Growth </h2>
+                        <p class="section-heading__desc">
+                            We empower individuals and businesses across Nigeria to enhance their online visibility and achieve their social media objectives.
+                        </p>
+                    </div>
+                    <div class="about-section-content">
+                        <div class="counter-list">
+                            <i class="counter-list__icon">
+                                <img src="assets/images/frontend/about/6509aaec44cc51695132396.png" alt="">
+                            </i>
+                            <div class="counter-list__content">
+                                <h2 class="counter-list__title counterup-item" data-odometer-final="1000"> 75k <span class="extra"><i class="fa fa-plus"></i></span></h2>
+                                <p class="counter-list__desc"> Active Users </p>
+                            </div>
+                        </div>
+                        <div class="counter-list">
+                            <i class="counter-list__icon">
+                                <img src="assets/images/frontend/about/6509aacb239f31695132363.png" alt="">
+                            </i>
+                            <div class="counter-list__content">
+                                <h2 class="counter-list__title counterup-item" data-odometer-final="1000"> 5k <span class="extra"><i class="fa fa-plus"></i></span></h2>
+                                <p class="counter-list__desc"> Top Influencers </p>
+                            </div>
+                        </div>
+                        <div class="counter-list">
+                            <i class="counter-list__icon">
+                                <img src="assets/images/frontend/about/6509aaaff07271695132335.png" alt="">
+                            </i>
+                            <div class="counter-list__content">
+                                <h2 class="counter-list__title counterup-item" data-odometer-final="1000"> 7M <span class="extra"><i class="fa fa-plus"></i></span></h2>
+                                <p class="counter-list__desc"> Campaigns Delivered </p>
+                            </div>
+                        </div>
+                        <div class="counter-list">
+                            <i class="counter-list__icon">
+                                <img src="assets/images/frontend/about/6509aa97594901695132311.png" alt="">
+                            </i>
+                            <div class="counter-list__content">
+                                <h2 class="counter-list__title counterup-item" data-odometer-final="1000"> 99% <span class="extra"><i class="fa fa-plus"></i></span></h2>
+                                <p class="counter-list__desc"> Fast Delivery </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn--base" href="user/register.html"> Get Started </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-section-banner">
+                        <img src="assets/images/frontend/about/65116382c3d081695638402.png" alt="about">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="service-section pt-60 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-8">
+                    <div class="section-heading style-left">
+                        <p class="section-heading__sub-title"> Our Services </p>
+                        <h2 class="section-heading__title"> High-impact services to help your business </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-card">
+                <div class="row g-md-4 g-3 justify-content-center">
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c102ac78af71723925164.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Instagram Growth </h5>
+                                <p class="template-card__desc">
+                                    Increase your followers, likes, and engagement with our targeted Instagram services. Perfect for influencers, brands, and businesses looking to expand their reach.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c102c4704271723925188.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> TikTok Promotion </h5>
+                                <p class="template-card__desc">
+                                    Get noticed on TikTok with more followers, likes, and views. Whether you’re a content creator or a brand, our services can help you go viral.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c102db565cf1723925211.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Facebook Engagement </h5>
+                                <p class="template-card__desc">
+                                    Increase your page likes, post likes, and comments on Facebook. Build a loyal community around your brand or business.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c102f3870201723925235.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Twitter Boost </h5>
+                                <p class="template-card__desc">
+                                    Enhance your Twitter presence with more followers, retweets, and likes. Get your tweets in front of a larger, more engaged audience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c103130ece91723925267.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> YouTube Services </h5>
+                                <p class="template-card__desc">
+                                    Boost your YouTube channel with more views, likes, and subscribers. Ideal for vloggers, musicians, and content creators aiming for a bigger audience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xsm-6">
+                        <div class="template-card">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/service/66c103548a52a1723925332.png">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/theree-arrow.png">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Other Services </h5>
+                                <p class="template-card__desc">
+                                    We also offer other services like Telegram, Website, Spotify, Pinterest and Many More
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="process-section py-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="section-heading style-left">
+                        <p class="section-heading__sub-title text-white"> Our Process </p>
+                        <h2 class="section-heading__title"> Get Started in 3 Easy Steps </h2>
+                        <h2 class="section-heading__title-alt"> Follow these 3 simple steps to start </h2>
+                        <p class="section-heading__desc">
+                            Simple and Effective Steps to Social Media Success
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-card">
+                <div class="row g-md-4 g-3 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="template-card text-md-start text-center">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/process/6509b733c38bb1695135539.png" alt="">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/three-arrow.png" alt="">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Create an account </h5>
+                                <p class="template-card__desc"> First Register on the website. Your details are Safe and Secure </p>
+                            </div>
+                            <a class="template-card__link" href="/register"> Get Started <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="template-card text-md-start text-center">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/process/6509b72a4ffce1695135530.png" alt="">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/three-arrow.png" alt="">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Fund Your Account </h5>
+                                <p class="template-card__desc"> Next Fund Your Account With Our Multiple Payment Methods </p>
+                            </div>
+                            <a class="template-card__link" href="/register"> Get Started <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="template-card text-md-start text-center">
+                            <div class="template-card__icon">
+                                <img class="icon" src="assets/images/frontend/process/6509b723a67461695135523.png" alt="">
+                                <img class="arrow" src="assets/templates/trendy/images/shapes/three-arrow.png" alt="">
+                            </div>
+                            <div class="template-card__content">
+                                <h5 class="template-card__title"> Create Order </h5>
+                                <p class="template-card__desc"> Create Your Order and Watch your account grow rapidly! </p>
+                            </div>
+                            <a class="template-card__link" href="/register"> Get Started <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-btn text-center ">
+                    <a class="btn btn--base" href="/register"> Get In Touch </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="testimonials pt-60 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-8">
+                    <div class="section-heading style-left">
+                        <p class="section-heading__sub-title"> What Our Happy Clients Are Saying </p>
+                        <h2 class="section-heading__title">
+                            75K+ Nigerians Use Our Services
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonials-card">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item__content">
+                            <img class="user-thumb testimonial-item__thumb" src="assets/images/frontend/testimonial/66c103f84f54c1723925496.png" alt="" alt="testimonial photo" />
+                            <div class="testimonial-item__icon flex-center">
+                                <img class="icon" src="assets/templates/trendy/images/icons/quote-icon01.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="testimonial-item__details">
+                            <h5 class="testimonial-item__name"> John Adebayo </h5>
+                            <p class="testimonial-item__designation"> Digital Marketer </p>
+                        </div>
+                        <div class="testimonial-item__rating">
+                            <ul class="rating-list">
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                            </ul>
+                        </div>
+                        <p class="testimonial-item__desc">
+                            Slab.ng has been a game-changer for my business. Their Instagram services helped me gain followers, and my engagement has skyrocketed. I highly recommend them!
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonials-card">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item__content">
+                            <img class="user-thumb testimonial-item__thumb" src="assets/images/frontend/testimonial/66c104172393d1723925527.png" alt="" alt="testimonial photo" />
+                            <div class="testimonial-item__icon flex-center">
+                                <img class="icon" src="assets/templates/trendy/images/icons/quote-icon01.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="testimonial-item__details">
+                            <h5 class="testimonial-item__name"> Grace Okeke </h5>
+                            <p class="testimonial-item__designation"> Social Media Influencer </p>
+                        </div>
+                        <div class="testimonial-item__rating">
+                            <ul class="rating-list">
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                            </ul>
+                        </div>
+                        <p class="testimonial-item__desc">
+                            I&#039;ve tried other platforms, but none compare to Slab.ng. Their TikTok promotion service is top-notch, and I&#039;ve seen incredible growth in just a few days. This is the boost I needed!
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonials-card">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item__content">
+                            <img class="user-thumb testimonial-item__thumb" src="assets/images/frontend/testimonial/66c1043b402661723925563.png" alt="" alt="testimonial photo" />
+                            <div class="testimonial-item__icon flex-center">
+                                <img class="icon" src="assets/templates/trendy/images/icons/quote-icon01.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="testimonial-item__details">
+                            <h5 class="testimonial-item__name"> Chinedu Eze </h5>
+                            <p class="testimonial-item__designation"> Entrepreneur </p>
+                        </div>
+                        <div class="testimonial-item__rating">
+                            <ul class="rating-list">
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                            </ul>
+                        </div>
+                        <p class="testimonial-item__desc">
+                            As a small business owner, I needed an affordable way to increase my online presence. Slab.ng delivered beyond my expectations, especially with their Facebook engagement services. Very satisfied!
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonials-card">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item__content">
+                            <img class="user-thumb testimonial-item__thumb" src="assets/images/frontend/testimonial/66c10464b30591723925604.png" alt="" alt="testimonial photo" />
+                            <div class="testimonial-item__icon flex-center">
+                                <img class="icon" src="assets/templates/trendy/images/icons/quote-icon01.png" alt="" />
+                            </div>
+                        </div>
+                        <div class="testimonial-item__details">
+                            <h5 class="testimonial-item__name"> Mary Yusuf </h5>
+                            <p class="testimonial-item__designation"> Content Creator </p>
+                        </div>
+                        <div class="testimonial-item__rating">
+                            <ul class="rating-list">
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                                <li class="rating-list__item"><i class="fas fa-star"></i></li>
+                            </ul>
+                        </div>
+                        <p class="testimonial-item__desc">
+                            Slab.ng is the best SMM platform I&#039;ve used so far. The YouTube services have really helped my channel grow. It&#039;s easy to use, and the customer support is always helpful. Highly recommend!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-section py-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="section-heading heading-three">
+                        <h2 class="section-heading__title"> Ready to grow your social media presence? </h2>
+                        <p class="section-heading__desc">
+                            Join thousands of satisfied customers who have transformed their social media accounts with Slab.ng. Whether you&#039;re an influencer, business owner, or content creator, we have the tools you need to succeed.
+                        </p>
+                        <a href="user/register.html" class="btn btn--base"> Get Started Today! </a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-3">
+                    <div class="contact-section__thumb">
+                        <img alt="" src="assets/images/frontend/action/66c1059bc45c41723925915.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("_footer"); %>
+
+
+    

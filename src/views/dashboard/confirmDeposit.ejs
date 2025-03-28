@@ -1,0 +1,42 @@
+<%- include("_header") %>
+
+<div class="dashboard__right">
+  <!-- Dashboard Body-->
+  <div class="dashboard-body">
+      <div class="row justify-content-center gy-4 py-5">
+          <div class="col-lg-8">
+              <h5 class="deposit-card-title">Flutterwave</h5>
+              <form class="text-center dashboard-form" action="/user/deposit" method="POST">
+                <input type="text" id="amountInput" name="amount" hidden>
+                  <ul class="list-group text-center">
+                      <li class="list-group-item d-flex justify-content-between">
+                          You have to pay :
+                          <span id ="amount" class="fw-bold"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between">
+                          You will get :
+                          <span id ="same-amount" class="fw-bold"></span>
+                      </li>
+                  </ul>
+                  <button type="submit" class="btn btn--base w-100 my-3 bg-greenish">
+                    Pay Now
+                </button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+    const amount = document.getElementById('amount').value;
+    const depositAmount = localStorage.getItem('depositAmount');
+    document.getElementById("amount").innerText = `₦${depositAmount}`;
+    document.getElementById("same-amount").innerText = `₦${depositAmount}`;
+    document.getElementById("amountInput").value = depositAmount;
+</script>
+
+<%- include("_footer") %>
+
+
+
+                                

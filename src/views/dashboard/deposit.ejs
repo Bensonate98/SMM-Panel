@@ -1,0 +1,80 @@
+<%- include("_header"); %>
+
+<div class="dashboard__right">
+  <!-- Dashboard Body-->
+  <div class="dashboard-body">
+      <div class="row justify-content-center">
+          <div class="col-lg-12">
+              <form action="https://www.slab.ng/user/deposit/insert" method="post" class="deposit-form">
+                  <div class="row justify-content-center gy-sm-4 gy-3">
+                      <div class="col-lg-6">
+                          <div class="payment-system-list is-scrollable gateway-option-list">
+                              <label for="Flutterwave" class="payment-item gateway-option">
+                                  <div class="payment-item__info d-flex">
+                                    <div class="pe-3">
+                                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAA+VBMVEVHcEwEmkT/YwL/mgD1sM8Am0b1r8v/mwD/mwD7lXX/VgT1r8v1r8kAmkT6mwP/YgT1r8v1r8v/WAP/VwX/VwMAoEwAmUg4kC79WAX/VgP/mwD1r8v/mwD/mgD/mgD0sdX/mwD/mwAAmUb/mwAAm0b/TgD1r8z1r8sAmkb/WAUAmkb1r8wAmkb/mwD/WAX/WAUAlh11on/zut/8oEf9oENdhjT/SQD1q8H2qb7/WAX1r8v/bgRqmjb/WAUWomH6h37/mwD2r8wAmkb/WAT3sdD/VQD/VwBNljn7pXT7fmfQZhd9jzD/dwOZppT+YiWpmyQtkz/5jISgppmjT2gwAAAAQHRSTlMAtRUKee7kpvUG0KMWUtkgjMT7be0oGQyc45f1bStaPMZLNVTRNWpQjo5rsd7kPVA7yC7r/KNBx/Sy0d6KYEyZNOzC8wAAAXpJREFUKJGlkddawkAQhSchDaKhSAdBmgpi731mNgF7e/+HcZcFEr3Uc5Hsyf/NmdkJwD+0Yvm+1U58SHfqrttMqeMmzdTIrWi07qJWB+DgNXR8P694Lg1gKuRt1F0PX7Jg8OEse9Mhcto9DzFoqcTUtaiCzavzVhbRg6xqze2ayABzdznZCeJxeuH2RS1RCRuID+EOJCoN3o5ZS0b7c3spe47Y1kaO2Zs1zunLFsQ+lFnnNhGb6p0j2tKpBdne4LG6OmJdJ+SpodZRFEP5LDGPAALcXSyvQXKooSiYym0zlzuI64sxt4iOBkKsaTfmfoBuvPg8ndfkPbRKPEXMxrBN9KZDlVbfMUj8MrgIH89iF+CzsTSpzGeYj1nKwyn3y9pka9Fj6PyANzxfxq0Q0X0Swi72SjZzvzTICFEzLbpKQBe9QcX4eH6aRFG1ckdkJaDpvYhicRJNoqepbfOXk05AyMo4IYrVUxnObFTgp8y9vdkeyt3ub/QHfQM65DidY7xmmAAAAABJRU5ErkJggg==" alt="">
+                                    </div>
+                                    <div class="fw-2">Flutterwave</div>
+                                  </div>
+                              </label>
+
+                              <!-- <label for="bank_transfer" class="payment-item gateway-option">
+                                  <div class="payment-item__info">
+                                      <span class="payment-item__check"></span>
+                                      <span class="payment-item__name">Bank Transfer</span>
+                                  </div>
+                                  <div class="payment-item__thumb">
+                                      <img class="payment-item__thumb-img" src="/asset/assets/images/gateway/66c0dbf1674351723915249.png" alt="payment-thumb">
+                                  </div>
+                                  <input class="payment-item__radio gateway-input" type="radio">
+
+                              </label> -->
+
+                          </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                          <div class="payment-system-list p-3">
+                              <div class="deposit-info">
+                                  <div class="deposit-info__title">
+                                      <p class="text mb-0 text-success">Amount</p>
+                                  </div>
+                                  <div class="deposit-info__input">
+                                      <div class="deposit-info__input-group input-group border border-success border-2">
+                                          <span class="deposit-info__input-group-text">₦</span>
+                                          <input type="text" class="form-control form--control amount" id="amount" name="amount" placeholder="00.00" value="" autocomplete="off">
+                                      </div>
+                                  </div>
+                              </div>
+                              <hr>
+                              <div class="deposit-info">
+                                  <div class="deposit-info__title">
+                                      <p class="text has-icon">Limit <span></span></p>
+                                  </div>
+                                  <div class="deposit-info__input">
+                                      <p class="text"><span class="gateway-limit">₦500.00 - ₦500,000.00</span></p>
+                                  </div>
+                              </div>
+
+                              <button type="submit" class="btn btn--base w-100 my-3 bg-greenish">
+                                  Confirm Deposit
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const amount = document.getElementById('amount').value;
+      localStorage.setItem('depositAmount', amount);
+      window.location.href = '/user/deposit/confirm';
+    });
+  </script>
+
+<%- include("_footer"); %>

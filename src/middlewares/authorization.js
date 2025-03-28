@@ -1,12 +1,15 @@
 import jwt from "jsonwebtoken";
-import { jwtSecret } from "../config/secrets.js";
+import { accessSecret} from "../config/secrets.js";
 
-export const authenticateToken = (req, res, next)=>{
-  const token = req.cookies.accessToken;
-  if(!token) return res.redirect("/login");
-  jwt.verify(token, jwtSecret, (err, decoded)=>{
+export const authenticateUser = (req, res, next)=>{
+  const accessToken = req.cookies.accessToken;
+  if(!accessToken){
+    if(!req.cookies.refreshToken) return res.redirect("/login");
+      return res.redirect("/refresh-token");
+  }
+  jwt.verify(accessToken, accessSecret, (err, decoded)=>{
     if(err) return res.redirect("/login");
-    req.user = decoded;
+    res.user = decoded;
     next();
   });
 }

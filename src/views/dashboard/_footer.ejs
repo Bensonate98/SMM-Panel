@@ -1,0 +1,195 @@
+<script src="/asset/assets/global/js/jquery-3.7.1.min.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+<script src="/asset/assets/global/js/bootstrap.bundle.min.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+<script src="/asset/assets/global/js/prism.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+
+<script src="/asset/assets/templates/trendy/js/main.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+
+<link href="/asset/assets/global/css/iziToast.min.css" rel="stylesheet">
+<link href="/asset/assets/global/css/iziToast_custom.css" rel="stylesheet">
+<script src="/asset/assets/global/js/iziToast.min.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+
+<script type="41ea73d7931e7d94b27632a4-text/javascript">
+"use strict";
+const colors = {
+    success: '#28c76f',
+    error: '#eb2222',
+    warning: '#ff9f43',
+    info: '#1e9ff2',
+}
+
+const icons = {
+    success: 'fas fa-check-circle',
+    error: 'fas fa-times-circle',
+    warning: 'fas fa-exclamation-triangle',
+    info: 'fas fa-exclamation-circle',
+}
+
+const notifications = [];
+const errors = [];
+
+const triggerToaster = (status, message) => {
+    iziToast[status]({
+        title: status.charAt(0).toUpperCase() + status.slice(1),
+        message: message,
+        position: "topRight",
+        backgroundColor: '#fff',
+        icon: icons[status],
+        iconColor: colors[status],
+        progressBarColor: colors[status],
+        titleSize: '1rem',
+        messageSize: '1rem',
+        titleColor: '#474747',
+        messageColor: '#a2a2a2',
+        transitionIn: 'obunceInLeft'
+    });
+}
+
+if (notifications.length) {
+    notifications.forEach(element => {
+        triggerToaster(element[0], element[1]);
+    });
+}
+
+if (errors.length) {
+    errors.forEach(error => {
+        triggerToaster('error', error);
+    });
+}
+
+function notify(status, message) {
+    if (typeof message == 'string') {
+        triggerToaster(status, message);
+    } else {
+        $.each(message, (i, val) => triggerToaster(status, val));
+    }
+}
+</script>
+<script src="/asset/assets/global/js/jquery.treeView.js" type="41ea73d7931e7d94b27632a4-text/javascript"></script>
+
+<script type="41ea73d7931e7d94b27632a4-text/javascript">
+(function($) {
+    "use strict";
+
+    $('.treeview').treeView();
+
+    $('.copy').on('click', function() {
+
+        var copyText = document.getElementById($(this).data('id'));
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+        $(this).find('.copyText').text('Copied');
+
+        setTimeout(() => {
+            $(this).find('.copyText').text('Copy');
+        }, 2000);
+    });
+
+    (function($) {
+
+        var amount = parseFloat($('.amount').val() || 0);
+        var gateway, minAmount, maxAmount;
+
+
+        $('.amount').on('input', function(e) {
+            amount = parseFloat($(this).val());
+
+            if (!amount) {
+                amount = 0;
+            }
+            calculation();
+        });
+
+        $('.gateway-input').on('change', function(e) {
+            gatewayChange();
+        });
+
+        function gatewayChange() {
+            let gatewayElement = $('.gateway-input:checked');
+            let methodCode = gatewayElement.val();
+
+            gateway = gatewayElement.data('gateway');
+            minAmount = gatewayElement.data('min-amount');
+            maxAmount = gatewayElement.data('max-amount');
+
+            let processingFeeInfo =
+                `${parseFloat(gateway.percent_charge).toFixed(2)}% with ${parseFloat(gateway.fixed_charge).toFixed(2)} NGN charge for payment gateway processing fees`
+            $(".proccessing-fee-info").attr("data-bs-original-title", processingFeeInfo);
+            calculation();
+        }
+
+        gatewayChange();
+
+        $(".more-gateway-option").on("click", function(e) {
+            let paymentList = $(".gateway-option-list");
+            paymentList.find(".gateway-option").removeClass("d-none");
+            $(this).addClass('d-none');
+            paymentList.animate({
+                scrollTop: (paymentList.height() - 60)
+            }, 'slow');
+        });
+
+        function calculation() {
+            if (!gateway) return;
+            $(".gateway-limit").text(minAmount + " - " + maxAmount);
+
+            let percentCharge = 0;
+            let fixedCharge = 0;
+            let totalPercentCharge = 0;
+
+            if (amount) {
+                percentCharge = parseFloat(gateway.percent_charge);
+                fixedCharge = parseFloat(gateway.fixed_charge);
+                totalPercentCharge = parseFloat(amount / 100 * percentCharge);
+            }
+
+            let totalCharge = parseFloat(totalPercentCharge + fixedCharge);
+            let totalAmount = parseFloat((amount || 0) + totalPercentCharge + fixedCharge);
+
+            $(".final-amount").text(totalAmount.toFixed(2));
+            $(".processing-fee").text(totalCharge.toFixed(2));
+            $("input[name=currency]").val(gateway.currency);
+            $(".gateway-currency").text(gateway.currency);
+
+            if (amount < Number(gateway.min_amount) || amount > Number(gateway.max_amount)) {
+                $(".deposit-form button[type=submit]").attr('disabled', true);
+            } else {
+                $(".deposit-form button[type=submit]").removeAttr('disabled');
+            }
+
+            if (gateway.currency != "NGN" && gateway.method.crypto != 1) {
+                $('.deposit-form').addClass('adjust-height')
+
+                $(".gateway-conversion, .conversion-currency").removeClass('d-none');
+                $(".gateway-conversion").find('.deposit-info__input .text').html(
+                    `1 NGN = <span class="rate">${parseFloat(gateway.rate).toFixed(2)}</span>  <span class="method_currency">${gateway.currency}</span>`
+                );
+                $('.in-currency').text(parseFloat(totalAmount * gateway.rate).toFixed(gateway.method.crypto == 1 ?
+                    8 : 2))
+            } else {
+                $(".gateway-conversion, .conversion-currency").addClass('d-none');
+                $('.deposit-form').removeClass('adjust-height')
+            }
+
+            if (gateway.method.crypto == 1) {
+                $('.crypto-message').removeClass('d-none');
+            } else {
+                $('.crypto-message').addClass('d-none');
+            }
+        }
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        $('.gateway-input').change();
+
+})(jQuery);
+        
+        
+</script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="41ea73d7931e7d94b27632a4-|49" defer></script>
+</body>
+
+</html>

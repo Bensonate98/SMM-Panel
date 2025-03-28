@@ -1,95 +1,478 @@
-<%- include ('_header'); %>
-     <!-- PAGE-BANNER -->
-     <section id="page-banner" class="login-signup-page">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="h2 mb-20">REGISTER</h2>
-                <div aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/register">REGISTER</a></li>
-                    </ol>
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Emboost - Register</title>
+    <meta name="title" Content="Slab.ng - Register">
+    <meta name="description" content="Slab.ng is Nigeria&#039;s top Social Media Management (SMM) platform. Enhance your social media presence with our efficient and affordable services. Join thousands of satisfied users today!">
+    <meta name="keywords" content="Slab.ng,SMM platform Nigeria,social media management,buy Instagram followers Nigeria,TikTok promotion Nigeria,affordable SMM services,boost social media presence,Nigeria social media growth,buy likes and followers,increase TikTok followers,social media marketing Nigeria,digital marketing services Nigeria,buy Twitter followers,YouTube views Nigeria,grow social media">
+    <link rel="shortcut icon" href="/assets/images/logo_icon/favicon.png" type="image/x-icon">
+
+    
+    <link rel="apple-touch-icon" href="/assets/images/logo_icon/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Slab.ng - Register">
+    
+    <meta itemprop="name" content="Slab.ng - Register">
+    <meta itemprop="description" content="Slab.ng is Nigeria&#039;s top Social Media Management (SMM) platform. Enhance your social media presence with our efficient and affordable services. Join thousands of satisfied users today!">
+    <meta itemprop="image" content="/assets/images/seo/66c0dd5c82d591723915612.png">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Slab.ng - Nigeria&#039;s Leading SMM Platform | Boost Your Social Media Presence">
+    <meta property="og:description" content="Slab.ng is Nigeria&#039;s top Social Media Management (SMM) platform. Enhance your social media presence with our efficient and affordable services. Join thousands of satisfied users today!">
+    <meta property="og:image" content="/assets/images/seo/66c0dd5c82d591723915612.png">
+    <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1180">
+    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="register.html">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Bootstrap CSS -->
+    <link href="/assets/global/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/global/css/all.min.css" rel="stylesheet">
+    <link href="/assets/global/css/line-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/global/css/prism.css" rel="stylesheet">
+
+    
+    <link href="/assets/templates/trendy/css/style.css" rel="stylesheet">
+    <link href="/assets/templates/trendy/css/custom.css" rel="stylesheet">
+
+        <style>
+        .social-logins a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff !important;
+        }
+
+
+        .social-logins {
+            margin: 15px 0 30px;
+            gap: 18px;
+        }
+
+        .social-logins .btn {
+            font-size: 16px;
+        }
+
+        .social-logins .google {
+            background: #df6156 !important;
+        }
+        .text-greenish{
+            color: hsl(176 87% 15%);
+        }
+
+        .social-logins .google:hover {
+            background: #f61d09 !important;
+        }
+
+        .social-logins .facebook {
+            background: rgb(76, 120, 212) !important;
+        }
+
+        .social-logins .facebook:hover {
+            background: #316FF6 !important;
+        }
+
+        .social-logins .linkedin {
+            background: #1b658e !important;
+        }
+
+        .social-logins .linkedin:hover {
+            background: #0077b5 !important;
+        }
+
+        .social-logins .icon {
+            margin-right: 0;
+        }
+
+        @media (max-width: 1499px) {
+            .social-logins {
+                gap: 40px
+            }
+        }
+
+        @media (max-width: 991px) {
+            .account-form {
+                padding: 35px 20px;
+            }
+
+            .social-logins {
+                font-size: 14px;
+            }
+
+            .social-logins {
+                gap: 30px
+            }
+        }
+
+        @media (max-width: 424px) {
+            .social-logins {
+                gap: 30px
+            }
+        }
+    </style>
+    <style>
+        .btn-dark {
+            color: #fff !important
+        }
+
+        .account.signup .account-logo {
+            margin-bottom: clamp(0.875rem, 0.8795rem + 4.2476vw, 1.0625rem);
+        }
+
+        .form-disabled.account-form {
+            position: relative;
+        }
+
+        .form-disabled.account-form::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            height: 100%;
+            width: 100%;
+            background-color: rgb(148 58 248 / 0%);
+            z-index: 3;
+            backdrop-filter: blur(3px);
+        }
+
+        .form-disabled.account-form .lock-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+    </style>
+
+    <link href="/assets/templates/trendy/css/colore071.css?color=054944&amp;secondColor=e5e5e5" rel="stylesheet">
+    
+    <!--NUDGIFY SCRIPT START-->
+    
+            <script type="7629825b77de83a1b2849fdc-text/javascript">
+    window.nudgify = {data: {"product":{"stock":null,"image":null,"id":null}}};
+    (function(w){
+        var k="nudgify",n=w[k]||(w[k]={});
+        n.uuid="04be8603-a291-4191-895a-21ff9c776c92";
+        var d=document,s=d.createElement("script");
+        s.src="../../pixel.nudgify.com/pixel.js";
+        s.async=1;
+        s.charset="utf-8";
+        d.getElementsByTagName("head")[0].appendChild(s)
+    })(window)
+</script>
+
+<!--NUDGIFY SCRIPT END-->
+
+<!-- Start of HubSpot Embed Code -->
+<script type="7629825b77de83a1b2849fdc-text/javascript" id="hs-script-loader" async defer src="../../js-eu1.hs-scripts.com/25397861.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!--ZOHO SALESIQ CHAT START-->
+
+<script type="7629825b77de83a1b2849fdc-text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siq109780666fd68c9da536fdbd0971aefd5e377374f3447896c3196664fa8f9e5b", 
+values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+
+<!--ZOHO SALESIQ CHAT END-->
+
+<!--ZOHO PAGESENSE START-->
+
+<script src="../../cdn.pagesense.io/js/slabng/3afbebf2b7d145d797e79a35165ae456.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+
+<!--ZOHO PAGE SENSE END-->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-34YM2LFXLM" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+<script type="7629825b77de83a1b2849fdc-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-34YM2LFXLM');
+</script>
+
+</head>
+
+<body>
+
+    
+    <!--<div class="preloader">-->
+    <!--    <div class="loader-p"></div>-->
+    <!--</div>-->
+
+    <div class="body-overlay"></div>
+
+    <div class="sidebar-overlay"></div>
+
+    <a class="scroll-top"><i class="fas fa-angle-double-up"></i></a>
+
+    
+        
+    <section class="account signup">
+        <div class="account-content">
+            <div class="account-logo">
+                <div class="container">
+                    <a href="/" class="fs-2 text-greenish fw-bolder text-decoration-none">
+                        emboost
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- /PAGE-BANNER -->
-     
-    <!-- LOGIN-SIGNUP -->
-    <section id="login-signup">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="d-flex align-items-center justify-content-start">
-                        <div class="wrapper">
-                            <div class="login-info-wrapper">
-                                <h5 class="h5 mb-30">Proclamations About Us</h5>
-                                <p>
-                                    <ul>
-                                        <li><b>Facebook</b>: emboost</li>
-                                        <li><b>Channel</b>: emboost</li>
-                                        <li><p><b>Phone</b>: 0913XXXX82</p></li>
-                                    </ul>
-                                </p>
-                            </div>
+            <div class="account-form ">
+                                <div class="row justify-content-center">
+                    <div class="col-xxl-8 col-xl-9 col-lg-11 col-md-12">
+                        <div class="account-form__content text-center">
+                            <h2 class="account-form__title mb-2"> Sign Up </h2>
+                            <p class="account-form__desc"> Create your account to start boosting your social media today </p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-                    <div class="form-wrapper w-100 h-100 d-flex flex-column align-items-start justify-content-center pl-65">
-                        <h4 class="h4 text-uppercase mb-30">REGISTER</h4>
                         <% if(error){ %>
-                                <div class="alert alert-warning text-center" role="alert">
-                                <%= error.message %>!
-                                </div>  
-                            <% } %>
-                        <form method="POST" action="/register" class="form-content w-100">
-                            <div class="signup">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" name="firstname" value="" placeholder="First Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" name="lastname" value="" placeholder="Last Name" required>
-                                        </div>
+                            <div class="text-warning text-center" role="alert">
+                            <%= error.message %>!
+                            </div>  
+                        <% } %>
+                        <form class="verify-gcaptcha" action="/register" method="POST">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form--label">First Name</label>
+                                        <input type="text" class="form-control form--control" name="firstname" value="" required>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" name="email" value="" placeholder="Email Address" required>
-                                        </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form--label">Last Name</label>
+                                        <input type="text" class="form-control form--control" name="lastname" value="" required>
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" type="password" name="password" placeholder="Password" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input class="form-control" type="password" name="confirmPassword" placeholder="Confirm Password" required>
-                                        </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form--label">E-Mail Address</label>
+                                        <input class="form-control form--control checkUser" name="email" type="email" value="" required>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div>
-                                        Already have an account? <a class="btn-forgetpass" href="/login">Login</a>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form--label">Password</label>
+                                        <input class="form-control form--control " name="password" type="password" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form--label">Confirm Password</label>
+                                        <input class="form-control form--control" name="confirmPassword" type="password" required>
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-12 form-group">
+                                    <button class="btn btn--base w-100" type="submit"> Sign Up </button>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="have-account text-center">
+                                        <p class="have-account__text"> Already have an account? <a class="have-account__link" href="/login"> Sign In </a></p>
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn mt-20" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
+            <div class="account-copyright">
+                <span class="fs-12 account-copyright__text">
+                    Copyright &copy; 2025. All Rights Reserved By <a class="t-link" href="/">emboost</a>
+                </span>
+            </div>
         </div>
     </section>
-    <!-- /LOGIN-SIGNUP -->
 
-    <%- include('_footer.ejs'); %>
+    <div class="modal custom--modal fade" id="existModalCenter" role="dialog" aria-labelledby="existModalCenterTitle" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="existModalLongTitle">You are with us</h5>
+                    <span class="close" data-bs-dismiss="modal" type="button" aria-label="Close">
+                        <i class="las la-times"></i>
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center m-0">You already have an account please sign in</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark btn--sm text-white" data-bs-dismiss="modal" type="button">Close</button>
+                    <a class="btn btn--base btn--sm" href="login.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    
+    <script src="/assets/global/js/jquery-3.7.1.min.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+    <script src="/assets/global/js/bootstrap.bundle.min.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+    <script src="/assets/global/js/datepicker.min.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+    <script src="/assets/global/js/datepicker.en.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+    <script src="/assets/global/js/prism.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+    <script src="/assets/templates/trendy/js/viewport.jquery.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+
+    
+    <script src="/assets/templates/trendy/js/main.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+
+
+
+    <link href="/assets/global/css/iziToast.min.css" rel="stylesheet">
+<link href="/assets/global/css/iziToast_custom.css" rel="stylesheet">
+<script src="/assets/global/js/iziToast.min.js" type="7629825b77de83a1b2849fdc-text/javascript"></script>
+
+<script type="7629825b77de83a1b2849fdc-text/javascript">
+    "use strict";
+    const colors = {
+        success: '#28c76f',
+        error: '#eb2222',
+        warning: '#ff9f43',
+        info: '#1e9ff2',
+    }
+
+    const icons = {
+        success: 'fas fa-check-circle',
+        error: 'fas fa-times-circle',
+        warning: 'fas fa-exclamation-triangle',
+        info: 'fas fa-exclamation-circle',
+    }
+
+    const notifications = [];
+    const errors = [];
+
+
+    const triggerToaster = (status, message) => {
+        iziToast[status]({
+            title: status.charAt(0).toUpperCase() + status.slice(1),
+            message: message,
+            position: "topRight",
+            backgroundColor: '#fff',
+            icon: icons[status],
+            iconColor: colors[status],
+            progressBarColor: colors[status],
+            titleSize: '1rem',
+            messageSize: '1rem',
+            titleColor: '#474747',
+            messageColor: '#a2a2a2',
+            transitionIn: 'obunceInLeft'
+        });
+    }
+
+    if (notifications.length) {
+        notifications.forEach(element => {
+            triggerToaster(element[0], element[1]);
+        });
+    }
+
+    if (errors.length) {
+        errors.forEach(error => {
+            triggerToaster('error', error);
+        });
+    }
+
+    function notify(status, message) {
+        if (typeof message == 'string') {
+            triggerToaster(status, message);
+        } else {
+            $.each(message, (i, val) => triggerToaster(status, val));
+        }
+    }
+</script>
+
+        <script type="7629825b77de83a1b2849fdc-text/javascript">
+        "use strict";
+        (function($) {
+
+            
+            $('[name=captcha]').siblings('label').removeClass('form-label').addClass('form--label');
+
+            $('.checkUser').on('focusout', function(e) {
+                var url = 'check-user.html';
+                var value = $(this).val();
+                var token = 'rv5z6kn345qhrB57k3ss98Cg6GjsigA1D1d4ik7B';
+
+                if ($(this).attr('name') == 'email') {
+                    var data = {
+                        email: value,
+                        _token: token
+                    }
+                }
+                if ($(this).attr('name') == 'username') {
+                    var data = {
+                        username: value,
+                        _token: token
+                    }
+                }
+                $.post(url, data, function(response) {
+                    if (response.data != false && response.type == 'email') {
+                        $('#existModalCenter').modal('show');
+                    } else if (response.data != false) {
+                        $(`.${response.type}Exist`).text(`${response.type} already exist`);
+                    } else {
+                        $(`.${response.type}Exist`).text('');
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+
+    <script type="7629825b77de83a1b2849fdc-text/javascript">
+        (function($) {
+            "use strict";
+            $(".langSel").on("change", function() {
+                window.location.href = "https://www.slab.ng/change/" + $(this).val();
+            });
+
+            $('.policy').on('click', function() {
+                $.get('../cookie/accept.html', function(response) {
+                    $('.cookies-card').addClass('d-none');
+                });
+            });
+
+            setTimeout(function() {
+                $('.cookies-card').removeClass('hide')
+            }, 2000);
+
+            var inputElements = $('[type=text],select,textarea');
+            $.each(inputElements, function(index, element) {
+                element = $(element);
+                element.closest('.form-group').find('label').attr('for', element.attr('name'));
+                element.attr('id', element.attr('name'))
+            });
+
+            $.each($('input, select, textarea'), function(i, element) {
+                var elementType = $(element);
+                if (elementType.attr('type') != 'checkbox') {
+                    if (element.hasAttribute('required')) {
+                        $(element).closest('.form-group').find('label').addClass('required');
+                    }
+                }
+            });
+
+            Array.from(document.querySelectorAll('table')).forEach(table => {
+                let heading = table.querySelectorAll('thead tr th');
+                Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
+                    Array.from(row.querySelectorAll('td')).forEach((colum, i) => {
+                        colum.setAttribute('data-label', heading[i].innerText)
+                    });
+                });
+            });
+
+
+        })(jQuery);
+    </script>
+
+<script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="7629825b77de83a1b2849fdc-|49" defer></script></body>
+</html>

@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
-import { authenticateToken } from "../middlewares/authorization.js";
+import { authenticateUser } from "../middlewares/authorization.js";
 import { viewUserDasboard } from "../controllers/user.controller.js";
 
 
-router.get("/dashboard", authenticateToken, viewUserDasboard);
+router.get("/dashboard", authenticateUser, viewUserDasboard);
 export default router;

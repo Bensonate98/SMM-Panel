@@ -56,8 +56,12 @@ export const loginSchema = new Joi.object({
 
 
   export const checkErrorAndValidate = (err, res)=>{
-    if(err.meta.target === "User_email_key"){
+    if(err.meta && err.meta.target === "User_email_key"){
       return res.render("home/register", {error:{message: "An account with this email already exists"}, title: "Register"});
+    }
+
+    if(err.message === "invalid user"){
+      return res.render("home/login", {error:{message: "Wrong credentials"}, title: "Login"});
     }
   }
 
