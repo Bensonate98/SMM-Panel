@@ -14,6 +14,13 @@
     <link href="/asset/assets/global/css/prism.css" rel="stylesheet">
     <link href="/asset/assets/templates/trendy/css/style.css" rel="stylesheet">
     <link href="/asset/assets/templates/trendy/css/custom.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
     <style>
         .empty-slip-message {
@@ -55,6 +62,27 @@
 
         .form-check-input:focus {
             box-shadow: none;
+        }
+        .bg-purple-like{
+            background-color: hsl(269 98% 83%);
+        }
+        .bg-greenish{
+            background-color: hsl(176 87% 15%);
+        }
+        
+        .next-button a:hover{
+            background-color: hsl(269, 51%, 64%) !important;
+        }
+        .btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .page-numbers {
+            padding: 0.375rem 0.75rem;
+            background: #f8f9fa;
+            border-radius: 0.25rem;
         }
     </style>
 
@@ -236,12 +264,12 @@
                                             <div class="sidebar-submenu ">
                                                 <ul class="sidebar-submenu-list">
                                                     <li class="sidebar-submenu-list__item ">
-                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/deposit">
+                                                        <a class="sidebar-submenu-list__link" href="/user/deposit">
                                                             <span class="text">Deposit Money </span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-submenu-list__item ">
-                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/deposit/history">
+                                                        <a class="sidebar-submenu-list__link" href="/user/deposit/history">
                                                             <span class="text">Deposit History </span>
                                                         </a>
                                                     </li>
@@ -251,7 +279,7 @@
 
 
                                         <li class="sidebar-menu-list__item ">
-                                            <a class="sidebar-menu-list__link" href="https://www.slab.ng/user/transactions">
+                                            <a class="sidebar-menu-list__link" href="/user/transaction/history">
                                                 <span class="icon"><i class="las la-exchange-alt"></i></span>
                                                 <span class="text">Transactions</span>
                                             </a>
@@ -277,12 +305,12 @@
                                             <div class="sidebar-submenu ">
                                                 <ul class="sidebar-submenu-list">
                                                     <li class="sidebar-submenu-list__item ">
-                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/profile-setting">
+                                                        <a class="sidebar-submenu-list__link" href="/user/profile-setting">
                                                             <span class="text">Profile Setting </span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-submenu-list__item ">
-                                                        <a class="sidebar-submenu-list__link" href="https://www.slab.ng/user/change-password">
+                                                        <a class="sidebar-submenu-list__link" href="/user/change-password">
                                                             <span class="text">Change Password </span>
                                                         </a>
                                                     </li>

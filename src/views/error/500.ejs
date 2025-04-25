@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error | emboost</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles to match emboost branding */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+        
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .btn-get-started {
+            background-color: #111;
+            color: white;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-get-started:hover {
+            background-color: #333;
+            color: white;
+        }
+        
+        .error-code {
+            font-size: 120px;
+            font-weight: 800;
+            line-height: 1;
+            color: #ff3e3e;
+        }
+        
+        .error-container {
+            min-height: calc(100vh - 180px);
+        }
+        
+        .device {
+            position: relative;
+            width: 100%;
+            padding-top: 180%;
+            background-color: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .device-content {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            background-color: #f8f8f8;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .error-icon {
+            color: #ff3e3e;
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .icon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        
+        .heart {
+            background-color: #ff3e3e;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .like {
+            background-color: #4267b2;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .social-icons .icon:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .social-icons .icon:nth-child(2) {
+            top: 30%;
+            right: 25%;
+            animation-delay: 1s;
+        }
+        
+        .social-icons .icon:nth-child(3) {
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+        
+        .social-icons .icon:nth-child(4) {
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+        
+        .device-decoration {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 100px;
+            height: 100px;
+            background-color: #c9a0ff;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+
+        @media (max-width: 768px){
+          .device{
+            display: none;
+          }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Error Content -->
+    <main class="container error-container d-flex align-items-center justify-content-center py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+                <div class="error-code">500</div>
+                <h1 class="display-5 fw-bold mb-3">Server Error</h1>
+                <p class="fs-5">Oops! Something went wrong on our end.</p>
+                <p class="text-muted mb-4">We're working to fix the issue. Please try again in a few moments.</p>
+                <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-lg-start">
+                    <a href="/" class="btn btn-dark px-4 py-2">Back to Home</a>
+                    <a href="/contact" class="btn btn-outline-secondary px-4 py-2">Contact Support</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="device mx-auto" style="max-width: 300px;">
+                    <div class="device-content">
+                        <div class="error-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="social-icons">
+                            <span class="icon heart"></span>
+                            <span class="icon like"></span>
+                            <span class="icon heart"></span>
+                            <span class="icon like"></span>
+                        </div>
+                    </div>
+                    <div class="device-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-top py-4 mt-auto">
+        <div class="container">
+            <p class="text-center text-muted small mb-0">&copy; 2025 emboost. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

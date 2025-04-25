@@ -1,0 +1,108 @@
+<%- include("_header"); %>
+
+<div class="dashboard__right">
+  <!-- Dashboard Body-->
+  <div class="dashboard-body">
+      <div class="user-profile-wrapper">
+          <div class="profile-form">
+              <div class="card">
+                  <div class="card-header">
+                      <div class="ms-2 me-auto">
+                          <div class="d-flex align-items-center">
+                              <div class="order_icon me-2">
+                                  <i class="las la-font fs-25"></i>
+                              </div>
+                              <div class="fw-bold user-names">Full Name: <%= firstname %> <%= lastname %></div>
+                          </div>
+                      </div>
+                      
+                      <div class="ms-2 me-auto">
+                          <div class="d-flex align-items-center">
+                              <div class="order_icon me-2">
+                                  <i class="las la-envelope-open-text fs-25"></i>
+                              </div>
+                              <div class="fw-bold user-email">Email: <%= email %></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <form class="register dashboard-form" id="profileUpdateForm">
+                          <div class="row">
+                              <div class="col-xxl-6 col-xl-12 col-lg-6">
+                                  <div class="form-group">
+                                      <label class="form--label">First Name</label>
+                                      <input class="form--control control-two" name="firstname" type="text" value="<%= firstname %>">
+                                  </div>
+                              </div>
+                              <div class="col-xxl-6 col-xl-12 col-lg-6">
+                                  <div class="form-group">
+                                      <label class="form--label">Last Name</label>
+                                      <input class="form--control control-two" name="lastname" type="text" value="<%= lastname %>">
+                                  </div>
+                              </div>
+                              <div class="col-xxl-6 col-xl-12 col-lg-6">
+                                  <div class="form-group">
+                                      <label class="form--label">Email</label>
+                                      <input class="form--control control-two" name="email" type="email" value="<%= email %>">
+                                  </div>
+                              </div>
+                          </div>
+                          <button class="btn btn-md btn--base w-100 bg-greenish" type="submit">Update Profile</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<script>
+    // Toastr configuration
+toastr.options = {
+  closeButton: true,
+  positionClass: 'toast-top-right',
+  progressBar: true,
+  timeOut: 5000
+};
+
+document.getElementById('profileUpdateForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const names = document.querySelector(".user-names");
+  const email = document.querySelector(".user-email");
+  
+  try {
+    // Set loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Updating...';
+
+    // Prepare form data
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData);
+    
+    const response = await fetch('/user/profile-update', {
+      method: 'POST',
+      credentials: 'include', // Send cookies 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload), // Convert payload to JSON
+    });
+    const data = await response.json(); // Parse response
+    if (data.success) {
+        names.textContent = `Full Name: ${data.data.firstname} ${data.data.lastname}`;
+        email.textContent = `Email: ${data.data.email}`;
+        toastr.success(data.message);
+    } else {
+      toastr.error(data.message);
+    }
+  } catch (error) {
+      toastr.error('An unexpected error occurred');
+    }
+    finally{
+        submitBtn.textContent = "Update Profile";
+        submitBtn.disabled = false;
+    }
+});
+</script>
+<%- include("_footer"); %>

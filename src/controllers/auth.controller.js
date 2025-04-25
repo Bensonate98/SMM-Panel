@@ -1,6 +1,6 @@
 import { checkErrorAndValidate } from "../util/validator.js";
 import { 
-  generateAccesToken, 
+  generateAccessToken, 
   sendAcessTokenAsCookie, 
   sendRefreshTokenAsCookie 
 } from "../util/helper.js";
@@ -17,7 +17,7 @@ import sendMail from "../services/email.service.js";
 
 export const registerUserController = async (req, res) =>{
   try{
-    const { firstname, lastname, email, password } = req.userData
+    const { firstname, lastname, email, password } = req.user;
     const { user, accessToken, refreshToken } = await createUser(firstname, lastname, email, password);
     await saveRefreshToken(refreshToken, user.id);
     sendAcessTokenAsCookie(res, accessToken);
@@ -31,7 +31,7 @@ export const registerUserController = async (req, res) =>{
 
 export const loginUserController = async (req, res)=>{
   try{
-    const { email, password } = req.user;
+    const { email, password } = req.user
     const { user, accessToken, refreshToken } = await loginUser(email, password);
     await saveRefreshToken(refreshToken, user.id);
     sendAcessTokenAsCookie(res, accessToken);
@@ -48,11 +48,11 @@ export const refreshTokenController = async (req, res)=>{
   try{
     const fetchedToken = await findRefreshToken(token);
     if(!fetchedToken || fetchedToken.expiresAt < new Date()) return res.redirect("/login");
-    sendAcessTokenAsCookie(res, generateAccesToken(fetchedToken.userId));
+    sendAcessTokenAsCookie(res, generateAccessToken(fetchedToken.userId, fetchedToken.user.email));
     return res.redirect("/user/dashboard");
   }
   catch(err){
-    console.log(err)
+    return res.redirect("/internal-server-error");
   }
 }
 
@@ -67,6 +67,6 @@ export const logoutUserController = async (req, res)=>{
     res.redirect("/login");
   }
   catch(err){
-    console.log(err);
+    return res.redirect("/internal-server-error");
   }
 }

@@ -54,6 +54,59 @@ export const loginSchema = new Joi.object({
               })
 })
 
+export const profileUpdateSchema = new Joi.object({
+  firstname: Joi.string()
+  .required()
+  .messages({
+    "string.base": "firstname should be a text",
+    "any.required": "firstname is required"
+  }),
+  lastname: Joi.string()
+  .required()
+  .messages({
+    "string.base": "last name should be a text",
+    "any.required": "Last name is required"
+  }),
+  email: Joi.string()
+            .email()
+            .required()
+            .messages({
+              "string.email": "invalid email",
+              "any.required": "Email is required"
+            })
+});
+
+export const passwordUpdateSchema = new Joi.object({
+  password: Joi.string()
+               .pattern(new RegExp('^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$'))
+               .min(8)
+               .max(30)
+               .required()
+               .messages({
+                "string.pattern.base": 'Password should be alphanumeric with special characters',
+                "string.min": "Password too short",
+                "string.max": "Password too long",
+                "any.required": 'Old password is required'
+              }),
+  newPassword: Joi.string()
+               .pattern(new RegExp('^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$'))
+               .min(8)
+               .max(30)
+               .required()
+               .messages({
+                "string.pattern.base": 'New password should be alphanumeric with special characters',
+                "string.min": "Password too short",
+                "string.max": "Password too long",
+                "any.required": 'New password is required'
+              }),
+  confirmPassword: Joi.string()
+                      .valid(Joi.ref("newPassword"))
+                      .required()
+                      .messages({
+                        "any.only": 'Password do not match'
+                      })
+});
+
 
   export const checkErrorAndValidate = (err, res)=>{
     if(err.meta && err.meta.target === "User_email_key"){
@@ -62,6 +115,8 @@ export const loginSchema = new Joi.object({
 
     if(err.message === "invalid user"){
       return res.render("home/login", {error:{message: "Wrong credentials"}, title: "Login"});
+    }else{
+      return res.render("error/500");
     }
   }
 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Payment</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Inline CSS (unchanged from your original) -->
+    <style>
+        /* [Keep all your existing CSS styles] */
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card border-0 shadow-sm">
+                    <!-- Header with gradient background -->
+                    <div class="card-header text-center border-0 gradient-header p-4">
+                        <div class="processing-icon-container bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center">
+                            <div class="spinner-border spinner-icon" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card body -->
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Processing Payment</h2>
+                            <p class="text-muted">Please wait while we process your transaction</p>
+                        </div>
+                        
+                        <!-- Progress bar -->
+                        <div class="mb-4">
+                            <div class="progress" style="height: 8px;">
+                                <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <small class="text-muted">Verifying payment</small>
+                                <small class="text-muted" id="progress-text">0%</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Transaction details -->
+                        <div class="bg-light rounded p-3 mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Amount</span>
+                                <span class="fw-semibold" id="amount"><%= amount %></span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Reference</span>
+                                <span class="fw-semibold" id="reference">PAY-XXXXXXXX</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Status message -->
+                        <div class="alert alert-info text-center mb-4" role="alert">
+                            <small id="status-message">Connecting to payment gateway...</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-muted small mt-3">
+                    This may take a few moments. Please do not close this page.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Real Payment Status Check Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reference = urlParams.get('reference');
+            
+            // Display reference in UI
+            document.getElementById('reference').textContent = reference;
+            
+            // Status messages to display during processing
+            const statusMessages = [
+                "Connecting to payment gateway...",
+                "Verifying payment details...",
+                "Processing transaction...",
+                "Confirming with bank...",
+                "Finalizing payment...",
+                "Almost done..."
+            ];
+            
+            // Progress simulation (visual only)
+            let progress = 0;
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const statusMessage = document.getElementById('status-message');
+            
+            // Update progress every 800ms (for visual feedback)
+            const progressInterval = setInterval(function() {
+                if (progress < 90) { // Stop at 90% until API confirms
+                    const increment = Math.floor(Math.random() * 10) + 5;
+                    progress = Math.min(progress + increment, 90);
+                    progressBar.style.width = progress + '%';
+                    progressText.textContent = progress + '%';
+                    
+                    // Update status message
+                    const messageIndex = Math.floor((progress / 90) * statusMessages.length);
+                    statusMessage.textContent = statusMessages[Math.min(messageIndex, statusMessages.length - 1)];
+                }
+            }, 800);
+            
+            // Check payment status every 3 seconds
+            const checkStatus = async () => {
+                try {
+                    const response = await fetch(`/user/deposit/status?reference=${reference}`);
+                    const data = await response.json();
+                    
+                    if (data.status === 'completed') {
+                        // Payment succeeded!
+                        clearInterval(progressInterval);
+                        progressBar.style.width = '100%';
+                        progressText.textContent = '100%';
+                        statusMessage.textContent = "Payment successful! Redirecting...";        
+                        
+                        // Redirect to success page after 1.5 seconds
+                        setTimeout(() => {
+                            window.location.href = `/payment/success?reference=${reference}&amount=${data.amount}`;
+                        }, 1500);
+                    } else if (data.status === 'failed') {
+                        // Payment failed
+                        clearInterval(progressInterval);
+                        statusMessage.textContent = "Payment failed. Please try again.";
+                        statusMessage.classList.remove('alert-info');
+                        statusMessage.classList.add('alert-danger');
+                    }
+                    // If still pending, do nothing (continue polling)
+                } catch (error) {
+                    console.error("Error checking status:", error);
+                    statusMessage.textContent = "Connection error. Still trying...";
+                }
+            };
+            
+            // Start checking status every 3 seconds
+            const statusInterval = setInterval(checkStatus, 1000);
+            
+            // Initial check
+            checkStatus();
+        });
+    </script>
+</body>
+</html>

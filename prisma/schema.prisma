@@ -23,7 +23,9 @@ model User {
   createdAt               DateTime        @default(now())
   updatedAt               DateTime        @updatedAt
   tokens                  Token[]
-  Deposit                 Deposit[]
+  deposits                Deposit[]
+  transactions            Transaction[]
+
 }
 
 model Token {
@@ -40,7 +42,26 @@ model Token {
 
 model Deposit {
   id                      Int             @id @default(autoincrement())
-  amount                  String   
+  amount                  Decimal         @db.Decimal(10, 2)
+  reference               String          @unique
+  status                  String          @default("pending")
+  userId                  Int    
+  user                    User            @relation(fields: [userId], references: [id])
+  createdAt               DateTime        @default(now())
+  updatedAt               DateTime        @updatedAt
+}
+
+enum transactionType {
+  deposit
+  order_purchase @map("order purchase")
+}
+
+model Transaction {
+  id                      Int             @id @default(autoincrement())
+  amount                  Decimal         @db.Decimal(10, 2)
+  type                    transactionType           
+  reference               String          @unique
+  remark                  String          
   userId                  Int    
   user                    User            @relation(fields: [userId], references: [id])
   createdAt               DateTime        @default(now())

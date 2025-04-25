@@ -17,12 +17,12 @@ export const comparePassword = (password, hashedPassword) => bcrypt.compare(pass
 //   return code.toString().padStart(6, '0');
 // };
 
-export const generateAccesToken = (userId)=>{
-  return jwt.sign({ payload: userId }, accessSecret, { expiresIn: '1m' }); 
+export const generateAccessToken = (userId, email)=>{
+  return jwt.sign({ userId, email }, accessSecret, { expiresIn: '15m' }); 
 };
 
-export const generateRefreshToken = (userId)=>{
-  return jwt.sign({ payload: userId }, refreshSecret, { expiresIn: '7d' }); 
+export const generateRefreshToken = (userId, email)=>{
+  return jwt.sign({ userId, email }, refreshSecret, { expiresIn: '7d' }); 
 };
 
 export const sendAcessTokenAsCookie = (res, token) =>{
@@ -30,7 +30,7 @@ export const sendAcessTokenAsCookie = (res, token) =>{
       httpOnly: true,
       secure: false,
       sameSite: "strict",
-      maxAge: 1 * 60 * 1000
+      maxAge: 15 * 60 * 1000
   });
 }
 

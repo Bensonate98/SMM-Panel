@@ -1,7 +1,7 @@
 import prisma from "../config/db.js";
-import { encryptPassword, comparePassword, generateAccesToken, generateRefreshToken } from "../util/helper.js";
+import { encryptPassword, comparePassword, generateAccessToken, generateRefreshToken } from "../util/helper.js";
 
-export const createUser = async (firstname, lastname, email, password)=>{
+export const createUser = async (firstname, lastname, email, password) => {
   const hashedPassword = await encryptPassword(password);
     const user = await prisma.user.create({
       data:{
@@ -11,8 +11,8 @@ export const createUser = async (firstname, lastname, email, password)=>{
         password: hashedPassword,
       }
     });
-    const accessToken = generateAccesToken(user.id);
-    const refreshToken = generateRefreshToken(user.id);
+    const accessToken = generateAccessToken(user.id, user.email);
+    const refreshToken = generateRefreshToken(user.id, user.email);
     return {user, accessToken, refreshToken};
 };
 
@@ -28,8 +28,8 @@ export const loginUser = async (email, password) => {
   if(!match){
     throw Error("invalid user");
   }
-  const accessToken = generateAccesToken(user.id);
-  const refreshToken = generateRefreshToken(user.id);
+  const accessToken = generateAccessToken(user.id, user.email);
+  const refreshToken = generateRefreshToken(user.id, user.email);
   return { user, accessToken, refreshToken };
 };
 
@@ -38,13 +38,13 @@ export const saveRefreshToken = async (refreshToken, userId)=>{
     data:{
       refreshToken,
       expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
-      userId: userId
+      user: { connect: { id: userId } }
     }
   })
 };
 
 export const findRefreshToken = async (token)=>{
-  return await prisma.token.findFirst({
+ return await prisma.token.findFirst({
     where:{ refreshToken: token },
     include: { user: true }
   })
@@ -54,4 +54,4 @@ export const deleteRefreshToken = async (refreshToken)=>{
   return await prisma.token.deleteMany({
     where: { refreshToken }
   })
-}
+};

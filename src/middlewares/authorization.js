@@ -9,7 +9,7 @@ export const authenticateUser = (req, res, next)=>{
   }
   jwt.verify(accessToken, accessSecret, (err, decoded)=>{
     if(err) return res.redirect("/login");
-    res.user = decoded;
+    req.user = decoded;
     next();
   });
 }

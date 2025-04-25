@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Inline CSS -->
+    <style>
+        /* Custom colors based on the dashboard screenshot */
+        :root {
+            --primary-pink: #e94e77;
+            --secondary-pink: #d4429f;
+            --teal: #2c5d63;
+            --teal-hover: #234a4f;
+            --error-red: #e74c3c;
+        }
+
+        /* Gradient header background */
+        .gradient-header {
+            background: linear-gradient(to right, var(--primary-pink), var(--secondary-pink));
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        /* Error icon styling */
+        .error-icon-container {
+            width: 90px;
+            height: 90px;
+            position: relative;
+            top: 20px;
+        }
+
+        .error-icon {
+            font-size: 3rem;
+            color: var(--error-red);
+        }
+
+        /* Custom button styles */
+        .btn-teal {
+            background-color: var(--teal);
+            color: white;
+            border: none;
+        }
+
+        .btn-teal:hover, .btn-teal:focus {
+            background-color: var(--teal-hover);
+            color: white;
+        }
+
+        .btn-outline-secondary {
+            color: #6c757d;
+            border-color: #6c757d;
+            background-color: transparent;
+        }
+
+        .btn-outline-secondary:hover, .btn-outline-secondary:focus {
+            background-color: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+        }
+
+        /* Contact link styling */
+        .contact-link {
+            color: var(--primary-pink);
+        }
+
+        .contact-link:hover {
+            color: var(--secondary-pink);
+        }
+
+        /* Animation for error icon */
+        .error-icon-container {
+            animation: shake 0.6s ease-out;
+        }
+
+        .card {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .btn {
+                display: none !important;
+            }
+            
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+            
+            .gradient-header {
+                background: #f8f9fa !important;
+                color: #212529 !important;
+            }
+            
+            .error-icon {
+                color: #212529 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-6 col-lg-5 col-xl-4">
+                <div class="card border-0 shadow-sm">
+                    <!-- Header with gradient background -->
+                    <div class="card-header text-center border-0 gradient-header p-4">
+                        <div class="error-icon-container bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center">
+                            <i class="bi bi-x-circle-fill error-icon"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Card body -->
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Payment Failed</h2>
+                            <p class="text-muted">We couldn't process your payment</p>
+                        </div>
+                        
+                        <!-- Error details -->
+                        <div class="bg-light rounded p-3 mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Reference</span>
+                                <span class="fw-semibold"><%= reference %></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Message</span>
+                                <span class="fw-semibold text-danger">Transaction declined</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Possible reasons -->
+                        <div class="mb-4">
+                            <p class="text-muted small mb-2">Possible reasons:</p>
+                            <ul class="text-muted small ps-3">
+                                <li>Insufficient funds in your account</li>
+                                <li>Card details entered incorrectly</li>
+                                <li>Transaction flagged by bank security</li>
+                                <li>Network connectivity issues</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Action buttons -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-teal" onclick="window.location.href='/user/deposit'">Try Again</button>
+                            <a href="/user/dashboard" class="btn btn-outline-secondary">Return to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center text-muted small mt-3">
+                    Need help? <a href="#" class="text-decoration-none contact-link">Contact our support team</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
